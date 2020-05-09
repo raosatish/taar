@@ -1,0 +1,34 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="..\..\assets\ShoppingList.png" id="icon" alt="User Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder="login" formControlName="username" />
+        <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+          <div *ngIf="username.errors.required">
+            User name is required.
+          </div>
+          <div *ngIf="username.errors.minlength">
+            User name should be at least {{ username.errors.minlength.requiredLength }} character(s) long
+          </div>
+          <div *ngIf="username.errors.cannotContainSpace">
+            User name cannot contain space
+          </div>
+        </div>
+        <input type="password" id="password" class="form-control validate fadeIn third" placeholder="password" formControlName="password">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form>
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+  
+    </div>
+  </div>
